@@ -1,0 +1,265 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap");
+body {
+  padding: 1rem;
+  height: 100%;
+  margin: 0;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  letter-spacing: 0.5px;
+  background-color: #121212;
+}
+
+.cv-main {
+  background: floralwhite;
+  border: 2px solid rgb(130, 130, 130);
+  display: flex;
+  gap: 1rem;
+  margin: auto;
+  max-width: 900px;
+}
+.cv-main .left-panel {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 33%;
+  background-color: bisque;
+}
+.cv-main .left-panel .profile-pic img {
+  width: 100%;
+  height: auto;
+}
+.cv-main .left-panel .details {
+  padding: 1rem;
+}
+.cv-main .left-panel .details .contatti .title {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.cv-main .left-panel .details .contatti .content {
+  font-size: 0.75rem;
+  margin-left: 0.4rem;
+}
+.cv-main .left-panel .details .contatti .content i {
+  font-size: 1rem;
+  margin-right: 5px;
+}
+.cv-main .left-panel .details .contatti .content i.fa-square-phone {
+  vertical-align: middle;
+  margin-left: 2px;
+}
+.cv-main .left-panel .details .profile {
+  border-top: 2px solid goldenrod;
+  padding-block: 1rem;
+  margin-top: 1rem;
+}
+.cv-main .left-panel .details .profile .title {
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+.cv-main .left-panel .details .profile .description {
+  margin-left: 0.4rem;
+  font-size: small;
+}
+.cv-main .left-panel .details .competenze,
+.cv-main .left-panel .details .interessi {
+  border-top: 2px solid goldenrod;
+  padding-top: 1rem;
+}
+.cv-main .left-panel .details .competenze .title,
+.cv-main .left-panel .details .interessi .title {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.cv-main .left-panel .details .competenze .skill-list,
+.cv-main .left-panel .details .competenze .interessi-list,
+.cv-main .left-panel .details .interessi .skill-list,
+.cv-main .left-panel .details .interessi .interessi-list {
+  font-size: small;
+  padding-left: 1.5rem;
+  margin-block: 1rem;
+  line-height: 1.2;
+}
+.cv-main .left-panel .details .competenze .skill-list li:not(:last-child),
+.cv-main .left-panel .details .competenze .interessi-list li:not(:last-child),
+.cv-main .left-panel .details .interessi .skill-list li:not(:last-child),
+.cv-main .left-panel .details .interessi .interessi-list li:not(:last-child) {
+  margin-bottom: 5px;
+}
+.cv-main .right-panel {
+  padding: 2rem;
+  width: 100%;
+}
+.cv-main .right-panel .name {
+  font-family: "Playfair Display", serif;
+  text-transform: capitalize;
+  font-size: 3rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: burlywood;
+  text-shadow: 0 2px 2px darkgrey;
+  padding-bottom: 2rem;
+}
+.cv-main .right-panel .specs {
+  border-left: 2px solid lightslategrey;
+  margin-left: 0.5rem;
+  padding-left: 1.5rem;
+}
+.cv-main .right-panel .specs .tab {
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+.cv-main .right-panel .specs .tab::before {
+  width: 1.2rem;
+  height: 1.2rem;
+  background-color: lightgray;
+  position: absolute;
+  left: -2.6rem;
+  top: -0.3rem;
+  padding: 0.4rem;
+  border-radius: 50%;
+}
+.cv-main .right-panel .specs .experiences::before {
+  content: url(work.svg);
+}
+.cv-main .right-panel .specs .experiences > .title {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1.15rem;
+  color: burlywood;
+  padding-bottom: 1em;
+}
+.cv-main .right-panel .specs .experiences .exp-list {
+  font-size: 0.75rem;
+}
+.cv-main .right-panel .specs .experiences .exp-list .exp {
+  position: relative;
+}
+.cv-main .right-panel .specs .experiences .exp-list .exp::before {
+  content: "";
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: darkslategrey;
+  position: absolute;
+  left: -1.8rem;
+  top: 0.15rem;
+}
+.cv-main .right-panel .specs .experiences .exp-list .exp:not(:last-child) {
+  margin-bottom: 1rem;
+}
+.cv-main .right-panel .specs .experiences .exp-list .exp .date {
+  font-family: "Courier New", Courier, monospace;
+  padding-left: 0.5rem;
+  font-weight: lighter;
+  padding-block: 0.4rem;
+}
+.cv-main .right-panel .specs .experiences .exp-list .exp .exp-points {
+  margin-top: 0;
+}
+.cv-main .right-panel .specs .experiences .exp-list .exp .exp-points li:not(:last-child) {
+  margin-bottom: 3px;
+}
+.cv-main .right-panel .specs .formazione::before {
+  content: url(formazione.svg);
+  padding-bottom: 0.3rem;
+}
+.cv-main .right-panel .specs .formazione > .title {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1.15rem;
+  color: burlywood;
+}
+.cv-main .right-panel .specs .formazione .content {
+  font-size: 0.75rem;
+  list-style-type: none;
+  padding-left: 1rem;
+}
+.cv-main .right-panel .specs .formazione .content li {
+  position: relative;
+}
+.cv-main .right-panel .specs .formazione .content li::before {
+  content: "";
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: darkslategrey;
+  position: absolute;
+  left: -2.8rem;
+  top: 0.175rem;
+}
+.cv-main .right-panel .specs .formazione .content .date {
+  padding-left: 1rem;
+  margin-block: 0.5rem;
+}
+.cv-main .right-panel .specs .lingue {
+  font-size: 0.75rem;
+}
+.cv-main .right-panel .specs .lingue::before {
+  content: url(lingue.svg);
+}
+.cv-main .right-panel .specs .lingue > .title {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1.15rem;
+  color: burlywood;
+}
+.cv-main .right-panel .specs .lingue .tabs {
+  padding: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.cv-main .right-panel .specs .lingue .tabs .lingua {
+  border: 0.4px solid rgba(128, 128, 128, 0.5);
+  flex: 0 1 40%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 0.4rem 1rem;
+  box-shadow: 0 1px 5px lightslategray;
+}
+.cv-main .right-panel .specs .lingue .tabs .lingua .title.flexy {
+  display: flex;
+  justify-content: space-between;
+}
+.cv-main .right-panel .specs .lingue .tabs .lingua .progress-bar {
+  border: 0.5px solid lightslategray;
+  height: 0.5rem;
+}
+.cv-main .right-panel .specs .lingue .tabs .lingua .progress-bar.perc-100 {
+  background: burlywood;
+}
+.cv-main .right-panel .specs .lingue .tabs .lingua .progress-bar.perc-75 {
+  background: linear-gradient(90deg, burlywood 75%, floralwhite 75%);
+}
+.cv-main .right-panel .specs .lingue .tabs .lingua .progress-bar.perc-25 {
+  background: linear-gradient(90deg, burlywood 25%, floralwhite 25%);
+}
+.cv-main .right-panel .specs .certificazioni::before {
+  content: url(coppa.svg);
+  padding-bottom: 0.3rem;
+}
+.cv-main .right-panel .specs .certificazioni > .title {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1.15rem;
+  color: burlywood;
+}
+.cv-main .right-panel .specs .certificazioni .content {
+  font-size: 0.75rem;
+  line-height: 1.4;
+  list-style-type: none;
+  padding-left: 1rem;
+}
+.cv-main .right-panel .specs .certificazioni .content li {
+  position: relative;
+}
+.cv-main .right-panel .specs .certificazioni .content li::before {
+  content: "";
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: darkslategrey;
+  position: absolute;
+  left: -2.8rem;
+  top: 0.2rem;
+}
+.cv-main .right-panel .specs .certificazioni .content li:not(:last-child) {
+  margin-bottom: 3px;
+}/*# sourceMappingURL=cv.css.map */

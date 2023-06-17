@@ -1,0 +1,323 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
+
+body {
+  padding: 1rem;
+  height: 100%;
+  margin: 0;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  letter-spacing: 0.5px;
+  background-color: #121212;
+}
+
+.cv-main {
+  background: floralwhite;
+  border: 2px solid rgb(130, 130, 130);
+  display: flex;
+  gap: 1rem;
+  margin: auto;
+  max-width: 900px;
+
+  .left-panel {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 33%;
+    background-color: bisque;
+
+    .profile-pic {
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    .details {
+      padding: 1rem;
+
+      .contatti {
+        .title {
+          text-transform: uppercase;
+          font-weight: bold;
+        }
+
+        .content {
+          font-size: 0.75rem;
+          margin-left: 0.4rem;
+
+          i {
+            font-size: 1rem;
+            margin-right: 5px;
+
+            &.fa-square-phone {
+              vertical-align: middle;
+              margin-left: 2px;
+            }
+          }
+        }
+      }
+
+      .profile {
+        border-top: 2px solid goldenrod;
+        padding-block: 1rem;
+        margin-top: 1rem;
+
+        .title {
+          text-transform: uppercase;
+          font-weight: bold;
+          margin-bottom: 0.5rem;
+        }
+
+        .description {
+          margin-left: 0.4rem;
+          font-size: small;
+        }
+      }
+
+      .competenze,
+      .interessi {
+        border-top: 2px solid goldenrod;
+        padding-top: 1rem;
+
+        .title {
+          text-transform: uppercase;
+          font-weight: bold;
+        }
+
+        .skill-list,
+        .interessi-list {
+          font-size: small;
+          padding-left: 1.5rem;
+          margin-block: 1rem;
+          line-height: 1.2;
+
+          li:not(:last-child) {
+            margin-bottom: 5px;
+          }
+        }
+      }
+    }
+  }
+
+  .right-panel {
+    padding: 2rem;
+    width: 100%;
+
+    .name {
+      font-family: 'Playfair Display', serif;
+      text-transform: capitalize;
+      font-size: 3rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      color: burlywood;
+      text-shadow: 0 2px 2px darkgrey;
+      padding-bottom: 2rem;
+    }
+
+    .specs {
+      border-left: 2px solid lightslategrey;
+      margin-left: 0.5rem;
+      padding-left: 1.5rem;
+
+      .tab {
+        margin-bottom: 1.5rem;
+        position: relative;
+
+        &::before {
+          width: 1.2rem;
+          height: 1.2rem;
+          background-color: lightgray;
+          position: absolute;
+          left: -2.6rem;
+          top: -0.3rem;
+          padding: 0.4rem;
+          border-radius: 50%;
+        }
+      }
+
+      .experiences {
+
+        &::before {
+          content: url(work.svg);
+        }
+
+        &>.title {
+          text-transform: uppercase;
+          font-weight: bold;
+          font-size: 1.15rem;
+          color: burlywood;
+          padding-bottom: 1em;
+        }
+
+        .exp-list {
+          font-size: 0.75rem;
+
+          .exp {
+            position: relative;
+
+            &::before {
+              content: "";
+              width: 0.5rem;
+              height: 0.5rem;
+              background-color: darkslategrey;
+              position: absolute;
+              left: -1.8rem;
+              top: 0.15rem;
+            }
+
+            &:not(:last-child) {
+              margin-bottom: 1rem;
+            }
+
+            .date {
+              font-family: 'Courier New', Courier, monospace;
+              padding-left: 0.5rem;
+              font-weight: lighter;
+              padding-block: 0.4rem;
+            }
+
+            .exp-points {
+              margin-top: 0;
+
+              li:not(:last-child) {
+                margin-bottom: 3px;
+              }
+            }
+          }
+        }
+      }
+
+      .formazione {
+
+        &::before {
+          content: url(formazione.svg);
+          padding-bottom: 0.3rem;
+        }
+
+        &>.title {
+          text-transform: uppercase;
+          font-weight: bold;
+          font-size: 1.15rem;
+          color: burlywood;
+        }
+
+        .content {
+          font-size: 0.75rem;
+          list-style-type: none;
+          padding-left: 1rem;
+
+          li {
+            position: relative;
+
+            &::before {
+              content: "";
+              width: 0.5rem;
+              height: 0.5rem;
+              background-color: darkslategrey;
+              position: absolute;
+              left: -2.8rem;
+              top: 0.175rem;
+            }
+          }
+
+          .date {
+            padding-left: 1rem;
+            margin-block: 0.5rem;
+          }
+        }
+      }
+
+      .lingue {
+        font-size: 0.75rem;
+
+        &::before {
+          content: url(lingue.svg);
+        }
+
+        &>.title {
+          text-transform: uppercase;
+          font-weight: bold;
+          font-size: 1.15rem;
+          color: burlywood;
+        }
+
+        .tabs {
+          padding: 1rem;
+          display: flex;
+          flex-wrap: wrap;
+          gap: 1rem;
+
+          .lingua {
+            border: 0.4px solid rgba(128, 128, 128, 0.5);
+            flex: 0 1 40%;
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+            padding: 0.4rem 1rem;
+            box-shadow: 0 1px 5px lightslategray;
+
+            .title.flexy {
+              display: flex;
+              justify-content: space-between;
+            }
+
+            .progress-bar {
+              border: 0.5px solid lightslategray;
+              height: 0.5rem;
+
+              &.perc-100 {
+                background: burlywood;
+              }
+
+              &.perc-75 {
+                background: linear-gradient(90deg, burlywood 75%, floralwhite 75%);
+              }
+
+              &.perc-25 {
+                background: linear-gradient(90deg, burlywood 25%, floralwhite 25%);
+              }
+            }
+          }
+        }
+      }
+
+      .certificazioni {
+        &::before {
+          content: url(coppa.svg);
+          padding-bottom: 0.3rem;
+        }
+
+        &>.title {
+          text-transform: uppercase;
+          font-weight: bold;
+          font-size: 1.15rem;
+          color: burlywood;
+        }
+
+        .content {
+          font-size: 0.75rem;
+          line-height: 1.4;
+          list-style-type: none;
+          padding-left: 1rem;
+
+          li {
+            position: relative;
+
+            &::before {
+              content: "";
+              width: 0.5rem;
+              height: 0.5rem;
+              background-color: darkslategrey;
+              position: absolute;
+              left: -2.8rem;
+              top: 0.2rem;
+            }
+          }
+
+          li:not(:last-child) {
+            margin-bottom: 3px;
+          }
+
+        }
+      }
+    }
+  }
+}
