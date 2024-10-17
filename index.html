@@ -1,97 +1,109 @@
 <!DOCTYPE html>
-<html>
+<html lang="it">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="cv.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400&display=swap" rel="stylesheet">
+
+    <title>Curriculum Vitae</title>
 </head>
 
 <body>
-    <div class="cv-main">
+    <div class="language-selection">
+        <a href="#" data-lang="lang-it" class="selector active">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><path fill="#fff" d="M10 4H22V28H10z"></path><path d="M5,4h6V28H5c-2.208,0-4-1.792-4-4V8c0-2.208,1.792-4,4-4Z" fill="#41914d"></path><path d="M25,4h6V28h-6c-2.208,0-4-1.792-4-4V8c0-2.208,1.792-4,4-4Z" transform="rotate(180 26 16)" fill="#bf393b"></path><path d="M27,4H5c-2.209,0-4,1.791-4,4V24c0,2.209,1.791,4,4,4H27c2.209,0,4-1.791,4-4V8c0-2.209-1.791-4-4-4Zm3,20c0,1.654-1.346,3-3,3H5c-1.654,0-3-1.346-3-3V8c0-1.654,1.346-3,3-3H27c1.654,0,3,1.346,3,3V24Z" opacity=".15"></path><path d="M27,5H5c-1.657,0-3,1.343-3,3v1c0-1.657,1.343-3,3-3H27c1.657,0,3,1.343,3,3v-1c0-1.657-1.343-3-3-3Z" fill="#fff" opacity=".2"></path></svg>
+            Italiano
+        </a>
+        <div class="separator"></div>
+        <a href="#" data-lang="lang-en" class="selector">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><rect x="1" y="4" width="30" height="24" rx="4" ry="4" fill="#071b65"></rect><path d="M5.101,4h-.101c-1.981,0-3.615,1.444-3.933,3.334L26.899,28h.101c1.981,0,3.615-1.444,3.933-3.334L5.101,4Z" fill="#fff"></path><path d="M22.25,19h-2.5l9.934,7.947c.387-.353,.704-.777,.929-1.257l-8.363-6.691Z" fill="#b92932"></path><path d="M1.387,6.309l8.363,6.691h2.5L2.316,5.053c-.387,.353-.704,.777-.929,1.257Z" fill="#b92932"></path><path d="M5,28h.101L30.933,7.334c-.318-1.891-1.952-3.334-3.933-3.334h-.101L1.067,24.666c.318,1.891,1.952,3.334,3.933,3.334Z" fill="#fff"></path><rect x="13" y="4" width="6" height="24" fill="#fff"></rect><rect x="1" y="13" width="30" height="6" fill="#fff"></rect><rect x="14" y="4" width="4" height="24" fill="#b92932"></rect><rect x="14" y="1" width="4" height="30" transform="translate(32) rotate(90)" fill="#b92932"></rect><path d="M28.222,4.21l-9.222,7.376v1.414h.75l9.943-7.94c-.419-.384-.918-.671-1.471-.85Z" fill="#b92932"></path><path d="M2.328,26.957c.414,.374,.904,.656,1.447,.832l9.225-7.38v-1.408h-.75L2.328,26.957Z" fill="#b92932"></path><path d="M27,4H5c-2.209,0-4,1.791-4,4V24c0,2.209,1.791,4,4,4H27c2.209,0,4-1.791,4-4V8c0-2.209-1.791-4-4-4Zm3,20c0,1.654-1.346,3-3,3H5c-1.654,0-3-1.346-3-3V8c0-1.654,1.346-3,3-3H27c1.654,0,3,1.346,3,3V24Z" opacity=".15"></path><path d="M27,5H5c-1.657,0-3,1.343-3,3v1c0-1.657,1.343-3,3-3H27c1.657,0,3,1.343,3,3v-1c0-1.657-1.343-3-3-3Z" fill="#fff" opacity=".2"></path></svg>
+            English
+        </a>
+    </div>
+
+    <div class="cv-main d-none">
         <div class="left-panel">
             <div class="profile-pic">
-                <img src="foto-Profilo.jpg" />
+                <img src="foto-Profilo.jpg" alt="Foto Profilo" />
             </div>
             <div class="details">
                 <div class="contatti">
                     <div class="title">
-                        CONTATTI
+                        <span class="lang-it">CONTATTI</span>
+                        <span class="lang-en">CONTACTS</span>
                     </div>
                     <div class="content">
                         <p class="address">
                             <i class="fa-solid fa-house"></i>
-                            Via Idria, 29, 95124, Catania CT
+                            <span class="lang-it">Via Idria, 29, 95124, Catania CT</span>
+                            <span class="lang-en">Via Idria, 29, 95124, Catania CT</span>
                         </p>
                         <p class="telefono">
                             <i class="fa-solid fa-square-phone"></i>
-                            (+39) 3669727346
+                            <span class="lang-it">(+39) 3669727346</span>
+                            <span class="lang-en">(+39) 3669727346</span>
                         </p>
                         <p class="email">
                             <i class="fa-solid fa-paper-plane"></i>
-                            mario.bonanno94@gmail.com
+                            <span class="lang-it">mario.bonanno94@gmail.com</span>
+                            <span class="lang-en">mario.bonanno94@gmail.com</span>
                         </p>
                     </div>
                 </div>
                 <div class="profile">
                     <div class="title">
-                        PROFILO PROFESSIONALE
+                        <span class="lang-it">PROFILO PROFESSIONALE</span>
+                        <span class="lang-en">PROFESSIONAL PROFILE</span>
                     </div>
                     <div class="description">
-                        Dopo aver conseguito la laurea magistrale in Informatica, ho iniziato la mia esperienza lavorativa come web developer
-                        presso un'azienda di consulenza. 
-                        Oltre alle nozioni acquisite, posso garantire massima disponibilità e determinazione, per
-                        supportare le figure senior e apprendere da loro le basi dell’attività.
-                        <br>La mia indole creativa mi ha spinto ad approcciarmi a campi come la creazione di videogiochi e lo sviluppo frontend di pagine web, 
-                        mentre la passione per la matematica mi fa apprezzare le sfide logiche e strutturali, 
-                        come quelle che ho incontrato nella progettazione di primitive intelligenze artificiali
-                        o programmazione backend per la gestione di siti.
+                        <span class="lang-it">Dopo aver conseguito la laurea magistrale in Informatica, ho iniziato la mia esperienza lavorativa come web developer presso un'azienda di consulenza. Oltre alle nozioni acquisite, posso garantire massima disponibilità e determinazione, per supportare le figure senior e apprendere da loro le basi dell’attività. La mia indole creativa mi ha spinto ad approcciarmi a campi come la creazione di videogiochi e lo sviluppo frontend di pagine web, mentre la passione per la matematica mi fa apprezzare le sfide logiche e strutturali, come quelle che ho incontrato nella progettazione di primitive intelligenze artificiali o programmazione backend per la gestione di siti.</span>
+                        <span class="lang-en">After earning my master's degree in Computer Science, I began my work experience as a web developer at a consulting company. In addition to the knowledge acquired, I can ensure maximum availability and determination to support senior figures and learn from them the basics of the activity. My creative nature has driven me to approach fields such as video game creation and frontend development of web pages, while my passion for mathematics makes me appreciate logical and structural challenges, such as those I encountered in designing primitive artificial intelligences or backend programming for website management.</span>
                     </div>
                 </div>
                 <div class="competenze">
                     <div class="title">
-                        Capacità e competenze
+                        <span class="lang-it">Capacità e competenze</span>
+                        <span class="lang-en">Skills and Competencies</span>
                     </div>
                     <ul class="skill-list">
                         <li>
-                            Buona conoscenza dei più
-                            comuni linguaggi di
-                            programmazione. In
-                            particolare di <strong>C, C++, C#,
-                                Python, HTML, CSS, Javascript</strong>, dei
-                            framework Processing e P5.js e delle librerie jQuery, Vue.js e Bootstrap.
+                            <span class="lang-it">Buona conoscenza dei più comuni linguaggi di programmazione. In particolare di <strong>C, C++, C#, Python, HTML, CSS, Javascript</strong>, dei framework Processing e P5.js e delle librerie jQuery, Vue.js e Bootstrap.</span>
+                            <span class="lang-en">Good knowledge of the most common programming languages. In particular <strong>C, C++, C#, Python, HTML, CSS, Javascript</strong>, the Processing and P5.js frameworks, and the jQuery, Vue.js, and Bootstrap libraries.</span>
                         </li>
                         <li>
-                            Buona conoscenza del <strong>game
-                                engine Unity</strong> e dei suoi
-                            componenti. In particolare
-                            ShaderGraph, VisualEffects,
-                            ParticleSystem
+                            <span class="lang-it">Buona conoscenza del <strong>game engine Unity</strong> e dei suoi componenti. In particolare ShaderGraph, VisualEffects, ParticleSystem</span>
+                            <span class="lang-en">Good knowledge of the <strong>Unity game engine</strong> and its components, particularly ShaderGraph, VisualEffects, ParticleSystem.</span>
                         </li>
                         <li>
-                            Conoscenza base del
-                            software di modellazione 3D
-                            “<strong>Blender</strong>” e del motore 
-                            <strong>Unreal Engine</strong>.
+                            <span class="lang-it">Conoscenza base del software di modellazione 3D “<strong>Blender</strong>” e del motore <strong>Unreal Engine</strong>.</span>
+                            <span class="lang-en">Basic knowledge of 3D modeling software <strong>Blender</strong> and the <strong>Unreal Engine</strong>.</span>
                         </li>
                         <li>
-                            Flessibilità, predisposizione alla crescita
-                            professionale e capacità di ascolto attivo
+                            <span class="lang-it">Flessibilità, predisposizione alla crescita professionale e capacità di ascolto attivo</span>
+                            <span class="lang-en">Flexibility, willingness for professional growth, and active listening skills.</span>
                         </li>
                     </ul>
                 </div>
                 <div class="interessi">
                     <div class="title">
-                        Interessi
+                        <span class="lang-it">Interessi</span>
+                        <span class="lang-en">Interests</span>
                     </div>
                     <ol class="interessi-list">
                         <li>
-                            Matematica, scienze e musica
+                            <span class="lang-it">Matematica, scienze e musica</span>
+                            <span class="lang-en">Mathematics, science, and music</span>
                         </li>
                         <li>
-                            Programmazione e Computer Grafica
+                            <span class="lang-it">Programmazione e Computer Grafica</span>
+                            <span class="lang-en">Programming and Computer Graphics</span>
                         </li>
                         <li>
-                            Videogiochi e Game Theory
+                            <span class="lang-it">Videogiochi e Game Theory</span>
+                            <span class="lang-en">Video games and Game Theory</span>
                         </li>
                     </ol>
                 </div>
@@ -99,73 +111,88 @@
         </div>
         <div class="right-panel">
             <div class="name">
-                Mario Bonanno
+                <span class="lang-it">Mario Bonanno</span>
+                <span class="lang-en">Mario Bonanno</span>
             </div>
             <div class="specs">
                 <div class="tab experiences">
                     <div class="title">
-                        Esperienze lavorative e professionali
+                        <span class="lang-it">Esperienze lavorative e professionali</span>
+                        <span class="lang-en">Work and Professional Experience</span>
                     </div>
                     <div class="exp-list">
                         <div class="exp">
                             <div class="title">
-                                <strong>Skylabs</strong>, Catania — Sviluppatore Fullstack
+                                <strong>Skylabs</strong>, Catania —
+                                <span class="lang-it">Sviluppatore Fullstack</span>
+                                <span class="lang-en">Fullstack Developer</span>
                             </div>
                             <div class="date">
-                                Ottobre 2022 - Ottobre 2024
+                                <span class="lang-it">Ottobre 2022 - Ottobre 2024</span>
+                                <span class="lang-en">October 2022 - October 2024</span>
                             </div>
-                            <ul class=" exp-points">
+                            <ul class="exp-points">
                                 <li class="point">
-                                    Sviluppo e manutenzione di progetti E-Commerce per aziende internazionali
-                                    di moda e distribuzione alimentare attraverso tecnologia
-                                    <strong>Salesforce Commerce Cloud</strong>.
+                                    <span class="lang-it">Sviluppo e manutenzione di progetti E-Commerce per aziende internazionali di moda e distribuzione alimentare attraverso tecnologia <strong>Salesforce Commerce Cloud</strong>.</span>
+                                    <span class="lang-en">Development and maintenance of E-Commerce projects for international fashion and food distribution companies using <strong>Salesforce Commerce Cloud</strong>.</span>
                                 </li>
                                 <li class="point">
-                                    Sviluppo componenti web personalizzati, finalizzati al riutilizzo interno.
+                                    <span class="lang-it">Sviluppo componenti web personalizzati, finalizzati al riutilizzo interno.</span>
+                                    <span class="lang-en">Development of custom web components aimed at internal reuse.</span>
                                 </li>
                                 <li class="point">
-                                    Utilizzo dei linguaggi <strong>Javascript, CSS, HTML, ISML, MJML</strong> e delle librerie <strong>jQuery, Vue.js, Bootstrap</strong>.
+                                    <span class="lang-it">Utilizzo dei linguaggi <strong>Javascript, CSS, HTML, ISML, MJML</strong> e delle librerie <strong>jQuery, Vue.js, Bootstrap</strong>.</span>
+                                    <span class="lang-en">Utilization of <strong>Javascript, CSS, HTML, ISML, MJML</strong> languages and <strong>jQuery, Vue.js, Bootstrap</strong> libraries.</span>
                                 </li>
                             </ul>
                         </div>
                         <div class="exp">
                             <div class="title">
-                                <strong>Università di Catania</strong>, Catania — Tirocinante
+                                <strong>Università di Catania</strong>, Catania —
+                                <span class="lang-it">Tirocinante</span>
+                                <span class="lang-en">Intern</span>
                             </div>
                             <div class="date">
-                                Gennaio 2022 - Luglio 2022
+                                <span class="lang-it">Gennaio 2022 - Luglio 2022</span>
+                                <span class="lang-en">January 2022 - July 2022</span>
                             </div>
-                            <ul class=" p-b-0 exp-points">
+                            <ul class="p-b-0 exp-points">
                                 <li class="point">
-                                    Sviluppo di moduli di vario genere relativi ad un videogioco 3D
+                                    <span class="lang-it">Sviluppo di moduli di vario genere relativi ad un videogioco 3D</span>
+                                    <span class="lang-en">Development of various modules related to a 3D video game</span>
                                 </li>
                                 <li class="point">
-                                    Implementazione di un sistema di I.A. basato su Behaviour Tree
+                                    <span class="lang-it">Implementazione di un sistema di I.A. basato su Behaviour Tree</span>
+                                    <span class="lang-en">Implementation of an AI system based on Behaviour Tree</span>
                                 </li>
                                 <li class="point">
-                                    Manutenzione del codice per l’utilizzo in un team di piccole
-                                    dimensioni
+                                    <span class="lang-it">Manutenzione del codice per l’utilizzo in un team di piccole dimensioni</span>
+                                    <span class="lang-en">Code maintenance for use in a small team</span>
                                 </li>
                                 <li class="point">
-                                    Adattamento Sprite e materiali per la creazione di effetti grafici
+                                    <span class="lang-it">Adattamento Sprite e materiali per la creazione di effetti grafici</span>
+                                    <span class="lang-en">Sprite and material adaptation for creating graphic effects</span>
                                 </li>
                             </ul>
                         </div>
                         <div class="exp">
                             <div class="title">
-                                <strong>STMicroelectronics</strong>, Catania — Tirocinante
+                                <strong>STMicroelectronics</strong>, Catania —
+                                <span class="lang-it">Tirocinante</span>
+                                <span class="lang-en">Intern</span>
                             </div>
                             <div class="date">
-                                Aprile 2019 - Maggio 2019
+                                <span class="lang-it">Aprile 2019 - Maggio 2019</span>
+                                <span class="lang-en">April 2019 - May 2019</span>
                             </div>
-                            <ul class=" p-b-0 exp-points">
+                            <ul class="p-b-0 exp-points">
                                 <li class="point">
-                                    Adattamento di algoritmi di Intelligenza Artificiale in un robot
-                                    umanoide mediante microcontrollore STM32
+                                    <span class="lang-it">Adattamento di algoritmi di Intelligenza Artificiale in un robot umanoide mediante microcontrollore STM32</span>
+                                    <span class="lang-en">Adaptation of Artificial Intelligence algorithms in a humanoid robot using STM32 microcontroller</span>
                                 </li>
                                 <li class="point">
-                                    Permettere la comunicazione tra microcontrollori attraverso la
-                                    tecnologia BlueTooth
+                                    <span class="lang-it">Permettere la comunicazione tra microcontrollori attraverso la tecnologia BlueTooth</span>
+                                    <span class="lang-en">Enabling communication between microcontrollers via Bluetooth technology</span>
                                 </li>
                             </ul>
                         </div>
@@ -173,93 +200,133 @@
                 </div>
                 <div class="tab formazione">
                     <div class="title">
-                        Istruzione e formazione
+                        <span class="lang-it">Istruzione e formazione</span>
+                        <span class="lang-en">Education and Training</span>
                     </div>
                     <ul class="content">
                         <li>
-                            <strong>Università di Catania</strong>, Catania — <i>Laurea Magistrale in Informatica</i>
+                            <strong>Università di Catania</strong>, Catania —
+                            <span class="lang-it"><i>Laurea Magistrale in Informatica</i></span>
+                            <span class="lang-en"><i>Master's Degree in Computer Science</i></span>
                         </li>
                         <div class="date">
-                            Luglio 2022
+                            <span class="lang-it">Luglio 2022</span>
+                            <span class="lang-en">July 2022</span>
                         </div>
                         <li>
-                            <strong>Università di Catania</strong>, Catania — <i>Laurea Triennale in Informatica</i>
+                            <strong>Università di Catania</strong>, Catania —
+                            <span class="lang-it"><i>Laurea Triennale in Informatica</i></span>
+                            <span class="lang-en"><i>Bachelor's Degree in Computer Science</i></span>
                         </li>
                         <div class="date">
-                            Luglio 2019
+                            <span class="lang-it">Luglio 2019</span>
+                            <span class="lang-en">July 2019</span>
                         </div>
                         <li>
-                            <strong>Liceo N. Spedalieri</strong>, Catania — <i>Diploma di maturità (classica)</i>
+                            <strong>Liceo N. Spedalieri</strong>, Catania —
+                            <span class="lang-it"><i>Diploma di maturità (classica)</i></span>
+                            <span class="lang-en"><i>High School Diploma (Classical)</i></span>
                         </li>
                         <div class="date">
-                            Luglio 2014
+                            <span class="lang-it">Luglio 2014</span>
+                            <span class="lang-en">July 2014</span>
                         </div>
+                    </ul>
                 </div>
                 <div class="tab lingue">
                     <div class="title">
-                        Lingue
+                        <span class="lang-it">Lingue</span>
+                        <span class="lang-en">Languages</span>
                     </div>
                     <div class="tabs">
                         <div class="lingua">
                             <div class="title">
-                                <strong>Italiano</strong>
+                                <span class="lang-it"><strong>Italiano</strong></span>
+                                <span class="lang-en"><strong>Italian</strong></span>
                             </div>
                             <div class="progress-bar perc-100"></div>
                             <div class="desc">
-                                Madrelingua
+                                <span class="lang-it">Madrelingua</span>
+                                <span class="lang-en">Native Speaker</span>
                             </div>
                         </div>
                         <div class="lingua">
                             <div class="title flexy">
-                                <span><strong>Inglese</strong></span>
+                                <span class="lang-it"><strong>Inglese</strong></span>
+                                <span class="lang-en"><strong>English</strong></span>
                                 <span>&mdash;</span>
-                                <span>C2</span>
+                                <span class="lang-it">C2</span>
+                                <span class="lang-en">C2</span>
                             </div>
                             <div class="progress-bar perc-75"></div>
                             <div class="desc">
-                                Avanzato
+                                <span class="lang-it">Avanzato</span>
+                                <span class="lang-en">Advanced</span>
                             </div>
                         </div>
                         <div class="lingua">
                             <div class="title">
-                                <strong>Francese</strong>
+                                <span class="lang-it"><strong>Francese</strong></span>
+                                <span class="lang-en"><strong>French</strong></span>
                             </div>
                             <div class="progress-bar perc-25"></div>
                             <div class="desc">
-                                Principiante
+                                <span class="lang-it">Principiante</span>
+                                <span class="lang-en">Beginner</span>
                             </div>
                         </div>
                         <div class="lingua">
                             <div class="title">
-                                <strong>Spagnolo</strong>
+                                <span class="lang-it"><strong>Spagnolo</strong></span>
+                                <span class="lang-en"><strong>Spanish</strong></span>
                             </div>
                             <div class="progress-bar perc-25"></div>
                             <div class="desc">
-                                Principiante
+                                <span class="lang-it">Principiante</span>
+                                <span class="lang-en">Beginner</span>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="tab certificazioni">
                     <div class="title">
-                        Altre Certificazioni
+                        <span class="lang-it">Altre Certificazioni</span>
+                        <span class="lang-en">Other Certifications</span>
                     </div>
                     <ul class="content">
                         <li>
-                            <strong>Laurea di primo livello in
-                                Pianoforte</strong> - Istituto musicale
-                            V. Bellini di Catania, 2013
+                            <span class="lang-it"><strong>Laurea di primo livello in Pianoforte</strong> - Istituto musicale V. Bellini di Catania, 2013</span>
+                            <span class="lang-en"><strong>First Level Degree in Piano</strong> - V. Bellini Music Institute of Catania, 2013</span>
                         </li>
                         <li>
-                            <strong>Certificazione C2 in lingua Inglese
-                            </strong> - Cambridge Institute
+                            <span class="lang-it"><strong>Certificazione C2 in lingua Inglese</strong> - Cambridge Institute</span>
+                            <span class="lang-en"><strong>C2 Certification in English</strong> - Cambridge Institute</span>
                         </li>
                     </ul>
                 </div>
             </div>
         </div>
     </div>
-    </div>
+
+    <script>
+        document.querySelectorAll('.language-selection a').forEach(link => {
+            link.addEventListener('click', function (event) {
+                event.preventDefault();
+                document.querySelector('.cv-main').classList.remove('d-none');
+                const lang = this.getAttribute('data-lang');
+
+                // Toggle language selection
+                document.querySelectorAll('.language-selection a').forEach(l => l.classList.remove('active'));
+                event.target.classList.add('active');
+
+                // Show/Hide language sections
+                document.querySelectorAll('.lang-it, .lang-en').forEach(el => {
+                    if (el.classList.contains(lang)) el.classList.remove('d-none');
+                    else el.classList.add('d-none');
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>
