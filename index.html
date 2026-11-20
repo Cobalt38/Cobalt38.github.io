@@ -5,7 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mario Bonanno — CV</title>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/x-icon" href="favicon.webp">
+  <link rel="icon" type="image/webp" href="favicon.webp">
+  <script>
+    /* Apply the saved theme before first paint (no attribute = follow system) */
+    try { var t = localStorage.getItem('theme'); if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t); } catch (e) {}
+  </script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -13,15 +17,55 @@
       --accent: #e84855; --accent2: #ff9f1c;
       --surface: #faf9f7; --surface2: #f2f0ec;
       --white: #ffffff; --border: #e2dfd8;
+      --card: #ffffff; --sidebar-bg: #0f0e17; --bar-bg: rgba(250,249,247,0.9);
+      --card-ring: none; --show-sun: block; --show-moon: none;
+      color-scheme: light;
+    }
+    /* Dark theme: follows the OS unless forced light; or forced via data-theme="dark". Screen only, so printing stays light. */
+    @media screen and (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --ink: #edeaf6; --ink-soft: #c6c2d8; --ink-muted: #8f8aa8;
+        --surface: #0b0a11; --surface2: #1f1d2a; --border: #2c2a3a;
+        --card: #14131c; --sidebar-bg: #1c1a28; --bar-bg: rgba(11,10,17,0.85);
+        --card-ring: 0 0 0 1px #24222f; --show-sun: none; --show-moon: block;
+        color-scheme: dark;
+      }
+    }
+    @media screen {
+      :root[data-theme="dark"] {
+        --ink: #edeaf6; --ink-soft: #c6c2d8; --ink-muted: #8f8aa8;
+        --surface: #0b0a11; --surface2: #1f1d2a; --border: #2c2a3a;
+        --card: #14131c; --sidebar-bg: #1c1a28; --bar-bg: rgba(11,10,17,0.85);
+        --card-ring: 0 0 0 1px #24222f; --show-sun: none; --show-moon: block;
+        color-scheme: dark;
+      }
     }
     html { font-size: 15px; }
     body { background: var(--surface); color: var(--ink); font-family: 'DM Sans', sans-serif; font-weight: 300; line-height: 1.65; }
     .lang-bar {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       display: flex; align-items: center; justify-content: flex-end;
-      padding: 0.6rem 2rem; background: rgba(250,249,247,0.9);
+      padding: 0.6rem 2rem; background: var(--bar-bg);
       backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); gap: 0.25rem;
     }
+    .bar-sep { width: 1px; height: 1.3rem; background: var(--border); margin: 0 0.5rem; }
+    .theme-btn {
+      position: relative; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+      width: 2.1rem; height: 2.1rem; border: 1.5px solid var(--border); border-radius: 50%;
+      background: none; cursor: pointer; color: var(--ink-soft); transition: border-color 0.2s, color 0.2s;
+    }
+    .theme-btn:hover { border-color: var(--ink-muted); color: var(--ink); }
+    .theme-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .theme-btn svg { width: 16px; height: 16px; }
+    .theme-btn .ico-sun { display: var(--show-sun); color: #d97706; }
+    .theme-btn .ico-moon { display: var(--show-moon); }
+    .theme-auto {
+      display: none; position: absolute; right: -4px; bottom: -4px;
+      min-width: 14px; height: 14px; padding: 0 3px; border-radius: 99px;
+      background: var(--accent); color: #fff; box-shadow: 0 0 0 2px var(--surface);
+      font-family: 'Syne', sans-serif; font-size: 0.55rem; font-weight: 700; line-height: 14px; text-align: center;
+    }
+    :root:not([data-theme]) .theme-auto { display: block; }
     .lang-btn {
       display: flex; align-items: center; gap: 0.4rem;
       padding: 0.35rem 0.9rem; border: 1.5px solid transparent;
@@ -39,7 +83,7 @@
     }
     @keyframes fadeUp { from { opacity:0; transform: translateY(16px); } to { opacity:1; transform: translateY(0); } }
     .sidebar {
-      background: var(--ink); color: var(--white);
+      background: var(--sidebar-bg); color: var(--white);
       padding: 2.8rem 1.8rem; border-radius: 16px 0 0 16px; overflow: hidden; position: relative;
     }
     .sidebar::before {
@@ -51,7 +95,7 @@
       border-radius:50%; background: var(--accent2); opacity:0.08; pointer-events:none;
     }
     .photo-ring { width:110px; height:110px; border-radius:50%; padding:3px; background: linear-gradient(135deg, var(--accent), var(--accent2)); margin: 0 auto 1.4rem; display:block; }
-    .photo-ring img { width:100%; height:100%; border-radius:50%; object-fit:cover; object-position: center top; display:block; border: 3px solid var(--ink); }
+    .photo-ring img { width:100%; height:100%; border-radius:50%; object-fit:cover; object-position: center top; display:block; border: 3px solid var(--sidebar-bg); }
     .sidebar-name { font-family:'Syne',sans-serif; font-size:1.35rem; font-weight:800; text-align:center; letter-spacing:0.01em; line-height:1.25; margin-bottom:0.3rem; }
     .sidebar-role-bar { font-size:0.73rem; text-align:center; color:var(--accent); letter-spacing:0.12em; text-transform:uppercase; margin-bottom:2rem; }
     .sidebar-section { margin-bottom:1.8rem; }
@@ -71,7 +115,7 @@
     .cert-item { font-size:0.8rem; color:rgba(255,255,255,0.7); padding:0.45rem 0; border-bottom:1px solid rgba(255,255,255,0.06); line-height:1.4; }
     .cert-item:last-child { border-bottom:none; }
     .cert-item strong { color:rgba(255,255,255,0.92); font-weight:500; }
-    .main-col { background:var(--white); padding:2.8rem 2.4rem; border-radius:0 16px 16px 0; border-left:1px solid var(--border); }
+    .main-col { background:var(--card); box-shadow:var(--card-ring); padding:2.8rem 2.4rem; border-radius:0 16px 16px 0; border-left:1px solid var(--border); }
     .main-name { font-family:'Syne',sans-serif; font-size:2.6rem; font-weight:800; line-height:1.1; color:var(--ink); letter-spacing:-0.02em; margin-bottom:0.3rem; }
     .name-accent { color:var(--accent); }
     .main-role { font-size:0.82rem; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; color:var(--ink-muted); margin-bottom:1.4rem; }
@@ -101,9 +145,20 @@
     .section:last-child { margin-bottom:0; }
     .hidden { display:none; }
     @media (max-width:700px) {
-      .cv-wrap { grid-template-columns:1fr; padding:4.5rem 1rem 2rem; }
+      .cv-wrap { grid-template-columns:minmax(0, 1fr); padding:4.5rem 1rem 2rem; }
       .sidebar { border-radius:12px 12px 0 0; padding:2rem 1.4rem; }
       .main-col { border-radius:0 0 12px 12px; border-left:none; border-top:1px solid var(--border); padding:2rem 1.4rem; }
+      .main-name { font-size:2.1rem; }
+    }
+    @media (max-width:480px) {
+      .exp-entry { grid-template-columns:minmax(0, 1fr); }
+      .exp-date { text-align:left; }
+    }
+    @media print {
+      .lang-bar { display:none; }
+      .cv-wrap { padding-top:0; animation:none; }
+      /* keep the dark sidebar (white text) even when "background graphics" is off */
+      .sidebar, .photo-ring, .lang-bar-fill, .edu-dot { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
     }
   </style>
 </head>
@@ -117,6 +172,12 @@
   <button class="lang-btn" id="btn-it" onclick="setLang('it')">
     <svg viewBox="0 0 32 32"><path fill="#fff" d="M10 4H22V28H10z"/><path d="M5,4h6V28H5c-2.2,0-4-1.8-4-4V8c0-2.2,1.8-4,4-4Z" fill="#41914d"/><path d="M25,4h6V28h-6c-2.2,0-4-1.8-4-4V8c0-2.2,1.8-4,4-4Z" transform="rotate(180 26 16)" fill="#bf393b"/></svg>
     Italiano
+  </button>
+  <span class="bar-sep" aria-hidden="true"></span>
+  <button class="theme-btn" id="btn-theme" type="button" onclick="cycleTheme()" title="Theme: System" aria-label="Theme: System">
+    <svg class="ico-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+    <svg class="ico-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    <span class="theme-auto" aria-hidden="true">A</span>
   </button>
 </nav>
 
@@ -336,12 +397,48 @@
 </div>
 
 <script>
+var currentLang = 'en';
+
+/* Theme: 'system' (no data-theme, follows OS) -> 'dark' -> 'light' -> 'system' */
+var THEME_ORDER = ['system', 'dark', 'light'];
+var THEME_LABELS = {
+  en: { prefix: 'Theme: ', system: 'System', dark: 'Dark', light: 'Light' },
+  it: { prefix: 'Tema: ', system: 'Sistema', dark: 'Scuro', light: 'Chiaro' }
+};
+function getTheme() {
+  var t = document.documentElement.getAttribute('data-theme');
+  return (t === 'dark' || t === 'light') ? t : 'system';
+}
+function setTheme(theme) {
+  var root = document.documentElement;
+  if (theme === 'system') root.removeAttribute('data-theme');
+  else root.setAttribute('data-theme', theme);
+  try {
+    if (theme === 'system') localStorage.removeItem('theme');
+    else localStorage.setItem('theme', theme);
+  } catch (e) {}
+  updateThemeBtn();
+}
+function cycleTheme() {
+  setTheme(THEME_ORDER[(THEME_ORDER.indexOf(getTheme()) + 1) % THEME_ORDER.length]);
+}
+function updateThemeBtn() {
+  var l = THEME_LABELS[currentLang];
+  var label = l.prefix + l[getTheme()];
+  var btn = document.getElementById('btn-theme');
+  btn.title = label;
+  btn.setAttribute('aria-label', label);
+}
+
 function setLang(lang) {
   var isIt = lang === 'it';
+  currentLang = isIt ? 'it' : 'en';
+  document.documentElement.lang = currentLang;
   document.querySelectorAll('.l-en').forEach(function(el){ el.classList.toggle('hidden', isIt); });
   document.querySelectorAll('.l-it').forEach(function(el){ el.classList.toggle('hidden', !isIt); });
   document.getElementById('btn-en').classList.toggle('active', !isIt);
   document.getElementById('btn-it').classList.toggle('active', isIt);
+  updateThemeBtn();
 }
 setLang('en');
 </script>
