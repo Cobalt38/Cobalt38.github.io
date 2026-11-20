@@ -20,17 +20,18 @@ function toggleTheme() {
   var next = getTheme() === 'dark' ? 'light' : 'dark';
   if (!document.startViewTransition || reducedMotion()) { applyTheme(next); return; }
 
-  // Circle centred on the button, growing until it covers the farthest corner of the viewport
+  // Circle centred on the button, growing until it covers the farthest corner of the viewport.
+  // The animation itself is the CSS @keyframes theme-reveal (cv.css): here we only pass centre and radius.
+  // Being declared in CSS, the clip is in place from the very first frame (no flash of the full new theme).
   var r = document.getElementById('btn-theme').getBoundingClientRect();
   var x = r.left + r.width / 2, y = r.top + r.height / 2;
   var radius = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y));
+  var root = document.documentElement.style;
+  root.setProperty('--vt-x', x + 'px');
+  root.setProperty('--vt-y', y + 'px');
+  root.setProperty('--vt-r', Math.ceil(radius) + 'px');
   var transition = document.startViewTransition(function () { applyTheme(next); });
-  transition.ready.then(function () {
-    document.documentElement.animate(
-      { clipPath: ['circle(0px at ' + x + 'px ' + y + 'px)', 'circle(' + radius + 'px at ' + x + 'px ' + y + 'px)'] },
-      { duration: 600, easing: 'cubic-bezier(0.4, 0, 0.2, 1)', pseudoElement: '::view-transition-new(root)' }
-    );
-  }).catch(function () { /* skipped by a newer click: the theme is still applied */ });
+  transition.ready.catch(function () { /* skipped by a newer click: the theme is still applied */ });
 }
 function updateThemeBtn() {
   var l = THEME_LABELS[currentLang];
