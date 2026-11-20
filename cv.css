@@ -6,7 +6,41 @@
   --white: #ffffff; --border: #e2dfd8;
   --card: #ffffff; --sidebar-bg: #0f0e17; --bar-bg: rgba(250,249,247,0.9);
   --card-ring: none; --show-sun: block; --show-moon: none;
+  /* Sidebar palette. Default = dark sidebar (dark theme and print); light theme on screen overrides it below */
+  --sb-bg: var(--sidebar-bg); --sb-photo-gap: var(--sidebar-bg);
+  --sb-ink: #ffffff; --sb-text: rgba(255,255,255,0.75); --sb-text-2: rgba(255,255,255,0.8);
+  --sb-text-3: rgba(255,255,255,0.7); --sb-strong: rgba(255,255,255,0.92); --sb-faint: rgba(255,255,255,0.45);
+  --sb-line: rgba(255,255,255,0.1); --sb-line-soft: rgba(255,255,255,0.06);
+  --sb-accent: var(--accent); --sb-icon: var(--accent2);
+  --sb-tag-bg: rgba(255,255,255,0.07); --sb-tag-line: rgba(255,255,255,0.1); --sb-tag-ink: rgba(255,255,255,0.8);
+  --sb-hot-bg: rgba(232,72,85,0.2); --sb-hot-line: rgba(232,72,85,0.35); --sb-hot-ink: rgba(255,180,180,0.9);
+  --sb-track: rgba(255,255,255,0.1); --sb-blob1: 0.12; --sb-blob2: 0.08;
   color-scheme: light;
+}
+/* Light theme: warm peach/blush sidebar, so the page reads as light (on mobile the sidebar fills the first screen) */
+@media screen {
+  :root[data-theme="light"] {
+    --sb-bg: linear-gradient(165deg, #fff6f0 0%, #ffece4 55%, #fde3d8 100%); --sb-photo-gap: #fff6f0;
+    --sb-ink: #2a1a24; --sb-text: #5b4652; --sb-text-2: #4a3642;
+    --sb-text-3: #6a5560; --sb-strong: #2a1a24; --sb-faint: #8f7883;
+    --sb-line: rgba(160,60,70,0.16); --sb-line-soft: rgba(160,60,70,0.09);
+    --sb-accent: #c42f3d; --sb-icon: #dd6b0c;
+    --sb-tag-bg: rgba(255,255,255,0.75); --sb-tag-line: rgba(160,60,70,0.14); --sb-tag-ink: #4a3642;
+    --sb-hot-bg: rgba(232,72,85,0.12); --sb-hot-line: rgba(232,72,85,0.32); --sb-hot-ink: #b0283a;
+    --sb-track: rgba(160,60,70,0.12); --sb-blob1: 0.14; --sb-blob2: 0.16;
+  }
+}
+@media screen and (prefers-color-scheme: light) {
+  :root:not([data-theme]) {
+    --sb-bg: linear-gradient(165deg, #fff6f0 0%, #ffece4 55%, #fde3d8 100%); --sb-photo-gap: #fff6f0;
+    --sb-ink: #2a1a24; --sb-text: #5b4652; --sb-text-2: #4a3642;
+    --sb-text-3: #6a5560; --sb-strong: #2a1a24; --sb-faint: #8f7883;
+    --sb-line: rgba(160,60,70,0.16); --sb-line-soft: rgba(160,60,70,0.09);
+    --sb-accent: #c42f3d; --sb-icon: #dd6b0c;
+    --sb-tag-bg: rgba(255,255,255,0.75); --sb-tag-line: rgba(160,60,70,0.14); --sb-tag-ink: #4a3642;
+    --sb-hot-bg: rgba(232,72,85,0.12); --sb-hot-line: rgba(232,72,85,0.32); --sb-hot-ink: #b0283a;
+    --sb-track: rgba(160,60,70,0.12); --sb-blob1: 0.14; --sb-blob2: 0.16;
+  }
 }
 /* Dark theme via data-theme="dark" (set by JS); the media query is only the no-JS fallback. Screen only, so printing stays light. */
 @media screen and (prefers-color-scheme: dark) {
@@ -70,38 +104,38 @@ body { background: var(--surface); color: var(--ink); font-family: 'DM Sans', sa
 }
 @keyframes fadeUp { from { opacity:0; transform: translateY(16px); } to { opacity:1; transform: translateY(0); } }
 .sidebar {
-  background: var(--sidebar-bg); color: var(--white);
+  background: var(--sb-bg); color: var(--sb-ink);
   padding: 2.8rem 1.8rem; border-radius: 16px 0 0 16px; overflow: hidden; position: relative;
 }
 .sidebar::before {
   content:''; position: absolute; top:-80px; right:-80px; width:220px; height:220px;
-  border-radius:50%; background: var(--accent); opacity:0.12; pointer-events:none;
+  border-radius:50%; background: var(--accent); opacity:var(--sb-blob1); pointer-events:none;
 }
 .sidebar::after {
   content:''; position: absolute; bottom:-60px; left:-40px; width:160px; height:160px;
-  border-radius:50%; background: var(--accent2); opacity:0.08; pointer-events:none;
+  border-radius:50%; background: var(--accent2); opacity:var(--sb-blob2); pointer-events:none;
 }
 .photo-ring { width:110px; height:110px; border-radius:50%; padding:3px; background: linear-gradient(135deg, var(--accent), var(--accent2)); margin: 0 auto 1.4rem; display:block; }
-.photo-ring img { width:100%; height:100%; border-radius:50%; object-fit:cover; object-position: center top; display:block; border: 3px solid var(--sidebar-bg); }
+.photo-ring img { width:100%; height:100%; border-radius:50%; object-fit:cover; object-position: center top; display:block; border: 3px solid var(--sb-photo-gap); }
 .sidebar-name { font-family:'Syne',sans-serif; font-size:1.35rem; font-weight:800; text-align:center; letter-spacing:0.01em; line-height:1.25; margin-bottom:0.3rem; }
-.sidebar-role-bar { font-size:0.73rem; text-align:center; color:var(--accent); letter-spacing:0.12em; text-transform:uppercase; margin-bottom:2rem; }
+.sidebar-role-bar { font-size:0.73rem; text-align:center; color:var(--sb-accent); letter-spacing:0.12em; text-transform:uppercase; margin-bottom:2rem; }
 .sidebar-section { margin-bottom:1.8rem; }
-.sidebar-label { font-family:'Syne',sans-serif; font-size:0.65rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent); margin-bottom:0.8rem; padding-bottom:0.4rem; border-bottom:1px solid rgba(255,255,255,0.1); }
-.contact-item { display:flex; align-items:flex-start; gap:0.65rem; margin-bottom:0.6rem; font-size:0.82rem; color:rgba(255,255,255,0.75); line-height:1.4; }
-.contact-item svg { flex-shrink:0; width:14px; height:14px; margin-top:2px; color:var(--accent2); }
+.sidebar-label { font-family:'Syne',sans-serif; font-size:0.65rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--sb-accent); margin-bottom:0.8rem; padding-bottom:0.4rem; border-bottom:1px solid var(--sb-line); }
+.contact-item { display:flex; align-items:flex-start; gap:0.65rem; margin-bottom:0.6rem; font-size:0.82rem; color:var(--sb-text); line-height:1.4; }
+.contact-item svg { flex-shrink:0; width:14px; height:14px; margin-top:2px; color:var(--sb-icon); }
 .contact-item a { color:inherit; text-decoration:none; }
-.contact-item a:hover { color:white; }
+.contact-item a:hover { color:var(--sb-ink); }
 .skill-tags { display:flex; flex-wrap:wrap; gap:0.35rem; }
-.stag { font-size:0.72rem; font-weight:500; padding:0.2rem 0.6rem; border-radius:4px; background:rgba(255,255,255,0.07); color:rgba(255,255,255,0.8); border:1px solid rgba(255,255,255,0.1); }
-.stag.hot { background:rgba(232,72,85,0.2); border-color:rgba(232,72,85,0.35); color:rgba(255,180,180,0.9); }
+.stag { font-size:0.72rem; font-weight:500; padding:0.2rem 0.6rem; border-radius:4px; background:var(--sb-tag-bg); color:var(--sb-tag-ink); border:1px solid var(--sb-tag-line); }
+.stag.hot { background:var(--sb-hot-bg); border-color:var(--sb-hot-line); color:var(--sb-hot-ink); }
 .lang-item { margin-bottom:0.85rem; }
-.lang-top { display:flex; justify-content:space-between; font-size:0.8rem; color:rgba(255,255,255,0.8); margin-bottom:0.3rem; }
-.lang-level { font-size:0.72rem; color:rgba(255,255,255,0.45); }
-.lang-bar-track { height:3px; background:rgba(255,255,255,0.1); border-radius:99px; overflow:hidden; }
+.lang-top { display:flex; justify-content:space-between; font-size:0.8rem; color:var(--sb-text-2); margin-bottom:0.3rem; }
+.lang-level { font-size:0.72rem; color:var(--sb-faint); }
+.lang-bar-track { height:3px; background:var(--sb-track); border-radius:99px; overflow:hidden; }
 .lang-bar-fill { height:100%; border-radius:99px; background:linear-gradient(90deg, var(--accent), var(--accent2)); }
-.cert-item { font-size:0.8rem; color:rgba(255,255,255,0.7); padding:0.45rem 0; border-bottom:1px solid rgba(255,255,255,0.06); line-height:1.4; }
+.cert-item { font-size:0.8rem; color:var(--sb-text-3); padding:0.45rem 0; border-bottom:1px solid var(--sb-line-soft); line-height:1.4; }
 .cert-item:last-child { border-bottom:none; }
-.cert-item strong { color:rgba(255,255,255,0.92); font-weight:500; }
+.cert-item strong { color:var(--sb-strong); font-weight:500; }
 .main-col { background:var(--card); box-shadow:var(--card-ring); padding:2.8rem 2.4rem; border-radius:0 16px 16px 0; border-left:1px solid var(--border); }
 .main-name { font-family:'Syne',sans-serif; font-size:2.6rem; font-weight:800; line-height:1.1; color:var(--ink); letter-spacing:-0.02em; margin-bottom:0.3rem; }
 .name-accent { color:var(--accent); }
