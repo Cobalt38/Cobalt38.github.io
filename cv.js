@@ -87,7 +87,30 @@ function setLang(lang) {
     });
   }, LANG_OUT_MS);
 }
+/* ---------- Link to the game: site address + /LaserChess/, never hardcoded ---------- */
+function initGameLink() {
+  var link = document.getElementById('game-link');
+  if (!link) return;
+  // Opened from disk (file://) there is no site address to build on: keep only the button, no QR / printed URL
+  if (!/^https?:$/.test(location.protocol)) return;
+  var url = location.origin + '/LaserChess/';
+  link.href = url;
+  document.getElementById('game-url').textContent = url.replace(/^https?:\/\//, '').replace(/\/$/, '');
+  if (typeof makeQR !== 'function') return;
+
+  var m = makeQR(url), n = m.length, quiet = 4, d = '';
+  for (var y = 0; y < n; y++) for (var x = 0; x < n; x++) {
+    if (m[y][x]) d += 'M' + (x + quiet) + ' ' + (y + quiet) + 'h1v1h-1z';
+  }
+  var size = n + 2 * quiet;
+  document.querySelector('#game-qr .qr-tile').innerHTML =
+    '<svg viewBox="0 0 ' + size + ' ' + size + '" shape-rendering="crispEdges">' +
+    '<rect width="' + size + '" height="' + size + '" fill="#fff"/><path fill="#0f0e17" d="' + d + '"/></svg>';
+  link.closest('.project').classList.add('has-qr');
+}
+
 document.getElementById('btn-en').addEventListener('click', function () { setLang('en'); });
 document.getElementById('btn-it').addEventListener('click', function () { setLang('it'); });
 document.getElementById('btn-theme').addEventListener('click', toggleTheme);
 applyLang('en');
+try { initGameLink(); } catch (e) { /* the link keeps its relative href; the rest of the page is unaffected */ }

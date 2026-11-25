@@ -162,6 +162,27 @@ body { background: var(--surface); color: var(--ink); font-family: 'DM Sans', sa
 .edu-sub { font-size:0.78rem; color:var(--ink-muted); margin-top:0.1rem; }
 .interests-row { display:flex; flex-wrap:wrap; gap:0.5rem; margin-top:0.5rem; }
 .int-chip { font-size:0.78rem; font-weight:500; color:var(--ink-soft); background:var(--surface); border:1.5px solid var(--border); border-radius:50px; padding:0.25rem 0.8rem; }
+/* Projects: text + "Play" button on the left, QR code on the right (QR and printed URL appear only once cv.js has built the link) */
+.project { display:grid; grid-template-columns:minmax(0, 1fr) auto; gap:0 1.8rem; align-items:center; }
+.project .exp-company { margin-bottom:0.35rem; }
+.project-desc { font-size:0.83rem; color:var(--ink-soft); line-height:1.55; max-width:460px; }
+.project-link { display:inline-block; margin-top:0.9rem; text-decoration:none; outline:none; }
+.project-btn {
+  display:inline-flex; align-items:center; gap:0.45rem; padding:0.4rem 1rem 0.4rem 0.85rem;
+  border:1.5px solid var(--accent); border-radius:50px; background:rgba(232,72,85,0.06); color:var(--accent);
+  font-family:'Syne',sans-serif; font-size:0.78rem; font-weight:700; letter-spacing:0.04em;
+  transition:background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+.project-btn svg { width:11px; height:11px; }
+.project-link:hover .project-btn { background:var(--accent); color:#fff; box-shadow:0 4px 14px rgba(232,72,85,0.28); }
+.project-link:focus-visible .project-btn { outline:2px solid var(--accent); outline-offset:2px; }
+.project-url { display:none; }
+.project-qr { display:none; margin:0; text-align:center; }
+.project.has-qr .project-qr { display:block; }
+/* always dark modules on white (inverted QR codes are not read by every scanner) */
+.qr-tile { width:96px; height:96px; background:#fff; border:1px solid var(--border); border-radius:10px; overflow:hidden; }
+.qr-tile svg { display:block; width:100%; height:100%; }
+.project-qr figcaption { font-family:'Syne',sans-serif; font-size:0.58rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--ink-muted); margin-top:0.45rem; }
 .section { margin-bottom:2.4rem; }
 .section:last-child { margin-bottom:0; }
 .hidden { display:none; }
@@ -174,10 +195,24 @@ body { background: var(--surface); color: var(--ink); font-family: 'DM Sans', sa
 @media (max-width:480px) {
   .exp-entry { grid-template-columns:minmax(0, 1fr); }
   .exp-date { text-align:left; }
+  /* on a phone the page is already on the device that would scan it: the button is enough */
+  .project { grid-template-columns:minmax(0, 1fr); }
+  .project.has-qr .project-qr { display:none; }
 }
 @media print {
   .lang-bar { display:none; }
   .cv-wrap { padding-top:0; animation:none; }
   /* keep the dark sidebar (white text) even when "background graphics" is off */
   .sidebar, .photo-ring, .lang-bar-fill, .edu-dot { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  /* paper: no button, the readable URL + QR instead */
+  .project { break-inside:avoid; }
+  .project-btn { display:none; }
+  .project-link { margin-top:0.6rem; }
+  .project.has-qr .project-url { display:inline; font-size:0.82rem; font-weight:500; color:var(--accent); white-space:nowrap; }
+  .project-url::before { content:'→ '; color:var(--accent2); }
+  /* the main column is narrow on paper: QR column only as wide as the code (2.3 cm), caption may wrap */
+  .project { gap:0 1.2rem; }
+  .project.has-qr .project-qr { display:block; width:2.3cm; }
+  .qr-tile { width:2.3cm; height:2.3cm; }
+  .project-qr figcaption { line-height:1.4; }
 }
