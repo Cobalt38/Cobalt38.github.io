@@ -166,7 +166,8 @@ body { background: var(--surface); color: var(--ink); font-family: 'DM Sans', sa
 .project { display:grid; grid-template-columns:minmax(0, 1fr) auto; gap:0 1.8rem; align-items:center; }
 .project .exp-company { margin-bottom:0.35rem; }
 .project-desc { font-size:0.83rem; color:var(--ink-soft); line-height:1.55; max-width:460px; }
-.project-link { display:inline-block; margin-top:0.9rem; text-decoration:none; outline:none; }
+.project-links { display:flex; flex-wrap:wrap; gap:0.5rem; margin-top:0.9rem; }
+.project-link { display:inline-block; text-decoration:none; outline:none; }
 .project-btn {
   display:inline-flex; align-items:center; gap:0.45rem; padding:0.4rem 1rem 0.4rem 0.85rem;
   border:1.5px solid var(--accent); border-radius:50px; background:rgba(232,72,85,0.06); color:var(--accent);
@@ -176,6 +177,10 @@ body { background: var(--surface); color: var(--ink); font-family: 'DM Sans', sa
 .project-btn svg { width:11px; height:11px; }
 .project-link:hover .project-btn { background:var(--accent); color:#fff; box-shadow:0 4px 14px rgba(232,72,85,0.28); }
 .project-link:focus-visible .project-btn { outline:2px solid var(--accent); outline-offset:2px; }
+/* secondary link (source code): neutral outline, so "Play" stays the main action */
+.project-btn.ghost { border-color:var(--border); background:none; color:var(--ink-soft); }
+.project-btn.ghost svg { width:13px; height:13px; }
+.project-link:hover .project-btn.ghost { background:var(--surface2); border-color:var(--ink-muted); color:var(--ink); box-shadow:none; }
 .project-url { display:none; }
 .project-qr { display:none; margin:0; text-align:center; }
 .project.has-qr .project-qr { display:block; }
@@ -207,8 +212,10 @@ body { background: var(--surface); color: var(--ink); font-family: 'DM Sans', sa
   /* paper: no button, the readable URL + QR instead */
   .project { break-inside:avoid; }
   .project-btn { display:none; }
-  .project-link { margin-top:0.6rem; }
-  .project.has-qr .project-url { display:inline; font-size:0.82rem; font-weight:500; color:var(--accent); white-space:nowrap; }
+  .project-links { flex-direction:column; align-items:flex-start; gap:0.15rem; margin-top:0.6rem; }
+  .project-url { font-size:0.82rem; font-weight:500; color:var(--accent); white-space:nowrap; }
+  .project.has-qr #game-url, .source-url { display:inline; }
+  .source-url { color:var(--ink-soft); }
   .project-url::before { content:'→ '; color:var(--accent2); }
   /* the main column is narrow on paper: QR column only as wide as the code (2.3 cm), caption may wrap */
   .project { gap:0 1.2rem; }
